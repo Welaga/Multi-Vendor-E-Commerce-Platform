@@ -1,0 +1,317 @@
+/* ============================================================
+   MarketHub — Custom Stylesheet
+   ============================================================ */
+
+/* ---- Root / Variables ---- */
+:root {
+    --primary:   #0d6efd;
+    --sidebar-w: 240px;
+}
+
+/* ---- Global ---- */
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+a { color: var(--primary); }
+
+/* ---- Sidebar Layout (Admin & Seller) ---- */
+#adminWrapper {
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: var(--sidebar-w);
+    min-height: 100vh;
+    flex-shrink: 0;
+    transition: width 0.25s ease, transform 0.25s ease;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+}
+
+.sidebar.collapsed {
+    width: 0;
+}
+
+.sidebar-link {
+    color: rgba(255,255,255,.75);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: .9rem;
+    transition: background .15s, color .15s;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-link:hover {
+    background: rgba(255,255,255,.12);
+    color: #fff;
+}
+
+.sidebar-link.active {
+    background: rgba(255,255,255,.2);
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Seller sidebar uses lighter active state on blue bg */
+#sidebar.bg-primary .sidebar-link.active {
+    background: rgba(0,0,0,.2);
+}
+
+.sidebar-section-title {
+    list-style: none;
+    padding: 6px 12px 2px;
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: rgba(255,255,255,.45);
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+#adminContent {
+    min-width: 0;
+    width: calc(100% - var(--sidebar-w));
+    transition: width 0.25s ease;
+}
+
+/* ---- Avatar Circle ---- */
+.avatar-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), #6610f2);
+    color: #fff;
+    font-weight: 700;
+    font-size: .9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* ---- Stat Icon Box ---- */
+.stat-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 12px;
+}
+
+/* ---- Product Cards (Storefront) ---- */
+.product-card {
+    transition: box-shadow .2s, transform .2s;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,.12) !important;
+    transform: translateY(-3px);
+}
+
+.product-img-wrap {
+    height: 200px;
+    background: #f0f2f5;
+}
+
+.product-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform .3s;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+.out-of-stock-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: .85rem;
+    letter-spacing: .05em;
+}
+
+/* ---- Category Cards ---- */
+.cat-card {
+    transition: box-shadow .2s, transform .2s;
+    border-radius: 12px;
+}
+
+.cat-card:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,.1) !important;
+    transform: translateY(-2px);
+}
+
+/* ---- Quick Link Cards (Admin) ---- */
+.quick-link-card {
+    transition: box-shadow .2s, transform .2s;
+    border-radius: 12px;
+}
+
+.quick-link-card:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,.1) !important;
+    transform: translateY(-2px);
+}
+
+/* ---- Cart Item ---- */
+.cart-item {
+    transition: background .15s;
+}
+
+.cart-item:hover {
+    background: #f8f9fa;
+}
+
+/* ---- Payment Option ---- */
+.payment-option {
+    cursor: pointer;
+    transition: border-color .15s, background .15s;
+}
+
+.payment-option:has(.form-check-input:checked) {
+    border-color: var(--primary) !important;
+    background: #eef4ff;
+}
+
+/* ---- Star Rating ---- */
+.star-rating i {
+    font-size: .85rem;
+}
+
+/* ---- Hero Banner ---- */
+.hero-banner {
+    background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-banner::after {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.07);
+    pointer-events: none;
+}
+
+/* ---- Tables ---- */
+.table th {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: #6c757d;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* ---- Breadcrumb ---- */
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+    font-size: .88rem;
+}
+
+/* ---- Badges ---- */
+.badge {
+    font-weight: 600;
+    font-size: .72rem;
+    letter-spacing: .03em;
+}
+
+/* ---- Forms ---- */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 .2rem rgba(13,110,253,.15);
+}
+
+/* ---- Cards ---- */
+.card {
+    border-radius: 12px;
+}
+
+.card-header {
+    border-radius: 12px 12px 0 0 !important;
+}
+
+/* ---- Alert ---- */
+.alert {
+    border-radius: 10px;
+}
+
+/* ---- Navbar ---- */
+.navbar-brand {
+    letter-spacing: -.02em;
+}
+
+/* ---- Pagination ---- */
+.page-link {
+    border-radius: 8px !important;
+    margin: 0 2px;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        z-index: 1050;
+        transform: translateX(-100%);
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: var(--sidebar-w) !important;
+    }
+
+    .sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+    #adminContent {
+        width: 100%;
+    }
+
+    .product-img-wrap,
+    .product-img {
+        height: 160px;
+    }
+
+    .hero-banner {
+        min-height: auto !important;
+        padding: 2rem 1.5rem !important;
+    }
+
+    .hero-banner h1 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-img-wrap,
+    .product-img {
+        height: 140px;
+    }
+}
